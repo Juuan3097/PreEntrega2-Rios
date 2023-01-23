@@ -22,27 +22,27 @@ class Producto{
 
 let lista_productos = [];
 
-lista_productos.push(new Producto("anillo" , 500 , "oro"));
-lista_productos.push(new Producto("pulsera" , 600 , "oro"));
-lista_productos.push(new Producto("collar" , 700 , "oro"));
-lista_productos.push(new Producto("boton" , 400 , "plata"));
-lista_productos.push(new Producto("amuleto" , 200 , "plata"));
-lista_productos.push(new Producto("cruz" , 100 , "plata"));
+// lista_productos.push(new Producto("anillo" , 500 , "oro"));
+// lista_productos.push(new Producto("pulsera" , 600 , "oro"));
+// lista_productos.push(new Producto("collar" , 700 , "oro"));
+// lista_productos.push(new Producto("boton" , 400 , "plata"));
+// lista_productos.push(new Producto("amuleto" , 200 , "plata"));
+// lista_productos.push(new Producto("cruz" , 100 , "plata"));
 
-// let lista_productos = [];
 
-// for ( let i=0 ; i < 6 ; i = i+ 1){
+// AGREGAR AL MENOS UN PRODUCTO CON material = oro
 
-//     let nombre = prompt("Ingrese el nombre del producto");
-//     let precio = parseInt(prompt("Ingrese el precio del producto"));
-//     let material = prompt("Ingrese el nombre del material");
+for ( let i=0 ; i < 6 ; i = i+ 1){
 
-//     let producto = new Producto(nombre, precio, material);
+    let nombre = prompt("Ingrese el nombre del producto");
+    let precio = parseInt(prompt("Ingrese el precio del producto"));
+    let material = prompt("Ingrese el nombre del material");
 
-//     lista_productos.push(producto);
-// }
+    let producto = new Producto(nombre, precio, material);
 
-// console.log( lista_productos );
+    lista_productos.push(producto);
+}
+
 
 //FIN ALTA DE PRODUCTOS//
 
@@ -91,15 +91,13 @@ while( consultar != "NO" ){
 
 console.log(productos_carrito);
 
-
-
-
     
 let con_descuento = productos_carrito.filter((ele_uno) => ele_uno.material.includes("oro")) 
 let sin_descuento = productos_carrito.filter((ele_dos) => ele_dos.material.includes("plata"))
 
 let descuento
-//USAR MAPA PARA APLICAR EL 30% DE DESCUENTO A con_descuento
+
+//APLICACIÓN DE DESCUENTOS
 
 let cupones = [
     {codigo:"ABC101" , descuento: 0.9},
@@ -140,6 +138,8 @@ else{
 
 let suma_total = sin_descuento.concat(aplicar_descuento)
 
+//SUMAR PRECIOS Y MOSTRARLOS POR CONSOLA
+
 function calcular_total( acu , producto){
     acu = acu + producto.precio;
     return acu
@@ -147,5 +147,7 @@ function calcular_total( acu , producto){
 }
 
 let venta_total = suma_total.reduce(calcular_total , 0);
+
+
 
 console.log("El valor final con descuentos aplicados es de: " , venta_total);
