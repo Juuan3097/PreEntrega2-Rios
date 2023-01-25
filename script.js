@@ -18,21 +18,13 @@ class Producto{
 
 //ALTA DE PRODUCTOS//
 
-
-
 let lista_productos = [];
 
-// lista_productos.push(new Producto("anillo" , 500 , "oro"));
-// lista_productos.push(new Producto("pulsera" , 600 , "oro"));
-// lista_productos.push(new Producto("collar" , 700 , "oro"));
-// lista_productos.push(new Producto("boton" , 400 , "plata"));
-// lista_productos.push(new Producto("amuleto" , 200 , "plata"));
-// lista_productos.push(new Producto("cruz" , 100 , "plata"));
 
 
 // AGREGAR AL MENOS UN PRODUCTO CON material = oro
 
-for ( let i=0 ; i < 6 ; i = i+ 1){
+for ( let i=0 ; i < 3 ; i = i+ 1){
 
     let nombre = prompt("Ingrese el nombre del producto");
     let precio = parseInt(prompt("Ingrese el precio del producto"));
@@ -89,13 +81,15 @@ while( consultar != "NO" ){
     consultar = prompt('Escriba "Si" para agregar productos y "NO" para finalizar');
 }
 
+
+console.log("<------------------------>");
+console.log("Lista carrito sin descuento");
 console.log(productos_carrito);
 
     
-let con_descuento = productos_carrito.filter((ele_uno) => ele_uno.material.includes("oro")) 
-let sin_descuento = productos_carrito.filter((ele_dos) => ele_dos.material.includes("plata"))
+let con_descuento = productos_carrito.filter((ele_uno) => ele_uno.material.includes("oro")); 
+let sin_descuento = productos_carrito.filter((ele_dos) => ele_dos.material.includes("plata"));
 
-let descuento
 
 //APLICACIÓN DE DESCUENTOS
 
@@ -148,6 +142,12 @@ function calcular_total( acu , producto){
 
 let venta_total = suma_total.reduce(calcular_total , 0);
 
+function carrito_final(){
+    console.log("<------------------------>");
+    console.log("Lista carrito precio final");
+    console.log(suma_total);
+}
 
+carrito_final();
 
 console.log("El valor final con descuentos aplicados es de: " , venta_total);
